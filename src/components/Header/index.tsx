@@ -6,9 +6,9 @@ import { RootReducer } from '../../store'
 import { useSelector } from 'react-redux'
 const Header = () => {
   const itens = useSelector((state: RootReducer) => state.carrinho.itens)
-  const valorTotal = itens.reduce((acc, item) => {
-    acc += item.preco
-    return acc
+  const valorTotal = itens.reduce((add, item) => {
+    add += item.preco
+    return add
   }, 0)
 
   return (

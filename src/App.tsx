@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Produtos from './containers/Produtos'
 import { GlobalStyle } from './styles'
@@ -15,22 +14,12 @@ export type Game = {
 }
 
 function App() {
-  const [games, setGames] = useState<Game[]>([])
-
-  useEffect(() => {
-    fetch('http://localhost:3000/produtos')
-      .then((res) => res.json())
-      .then((res) => setGames(res))
-  }, [])
-  function adicionarAoCarrinho() {
-    console.log('teste')
-  }
   return (
     <Provider store={store}>
       <GlobalStyle />
       <div className="container">
         <Header />
-        <Produtos jogos={games} adicionarAoCarrinho={adicionarAoCarrinho} />
+        <Produtos />
       </div>
     </Provider>
   )
